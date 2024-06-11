@@ -23,7 +23,7 @@ class Node
     end
 
     def get_frec ()
-        return @frec
+        return @frec.to_i
     end
 
     def get_info

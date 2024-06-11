@@ -2,6 +2,8 @@ require './structure.rb'
 require './tools.rb'
 
 texto = ''
+node_list = []
+
 
 if ARGV.size > 0
     if ARGV[0].eql? '-t'
@@ -9,9 +11,10 @@ if ARGV.size > 0
         ARGV.each {|t| texto+=t}
     end
 end
+checkText(texto)
 
-if texto.eql? '' then puts 'texto vacio' end
+sortByFrec(getTextFrec(texto)).each do |element|
+    node_list.append(Node.new(element[1],element[0]))
+end
 
-textDict = sortByFrec getTextFrec texto
-
-print textDict
+node_list.each {|n| puts "#{n.get_letter} #{n.get_frec} => #{n}"}

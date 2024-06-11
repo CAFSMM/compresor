@@ -8,3 +8,6 @@ def sortByFrec (textDict)
     return textDict.sort_by{|key, value| value }.to_h
 end
 
+def checkText (texto)
+    if texto.eql? '' then puts 'texto vacio' end
+end

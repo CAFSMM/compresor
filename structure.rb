@@ -1,11 +1,11 @@
 class Node 
     attr_accessor :letter, :frec, :left, :right
 
-    def initialize (frec=0, letter=nil)
+    def initialize (frec=0, letter=nil, left=nil, right=nil)
         @frec = frec
         @letter = letter
-        @left = nil
-        @right = nil
+        @left = left
+        @right = right
     end
 
     def isLeaf ()
@@ -25,5 +25,27 @@ class Node
     def get_frec ()
         return @frec
     end
+
+    def get_info
+        return "#{@letter} => #{frec} | L:#{@left}  R:#{@right}"
+    end
+
+    def info
+        return get_info
+    end
 end
+
+class Tree
+    def initialize (root=nil)
+        @root = root
+    end
+
+    def printData (root=@root)
+        puts "#{root.get_letter} => #{root.get_frec}"
+        if root.left != nil then printData(root.left) end
+        if root.right != nil then printData(root.right) end
+    end
+
+end
+
 

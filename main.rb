@@ -1,10 +1,17 @@
 require './structure.rb'
 require './tools.rb'
 
-if ARGV
-file = File.open ARGV[0]
+texto = ''
 
-file_data = file.read
+if ARGV.size > 0
+    if ARGV[0].eql? '-t'
+        ARGV.shift
+        ARGV.each {|t| texto+=t}
+    end
+end
 
-print file_data
+if texto.eql? '' then puts 'texto vacio' end
 
+textDict = sortByFrec getTextFrec texto
+
+print textDict

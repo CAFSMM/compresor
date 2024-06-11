@@ -8,8 +8,3 @@ def sortByFrec (textDict)
     return textDict.sort_by{|key, value| value }.to_h
 end
 
-textDict = sortByFrec getTextFrec(
-    'tengo un perro griss que tiene hambre y comio un pedazo de jamon'
-)
-
-print textDict

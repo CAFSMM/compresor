@@ -13,8 +13,6 @@ if ARGV.size > 0
 end
 checkText(texto)
 
-sortByFrec(getTextFrec(texto)).each do |element|
-    node_list.append(Node.new(element[1],element[0]))
-end
+sortByFrec(getTextFrec(texto)).each { |element| node_list.append(Node.new(element[1],element[0])) }
 
 node_list.each {|n| puts "#{n.get_letter} #{n.get_frec} => #{n}"}
